@@ -35,7 +35,7 @@ export const heroData: HeroData = {
   trustPills: [
     "Candid & Royal Weddings",
     "4K Cinema & Aerial Drone",
-    "Udaipur • Jaipur • Delhi • Goa",
+    "Ranchi • Jamshedpur • Pan-India",
   ],
 };
 

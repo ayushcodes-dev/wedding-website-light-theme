@@ -145,12 +145,12 @@ export const testimonialsData = [
 Update studio address, Google Map embed URL, WhatsApp number, phone number, and social media handles:
 ```typescript
 export const contactData = {
-  phoneNumber: "+919876543210",
-  whatsappNumber: "919876543210",
+  phoneNumber: "+916299632625",
+  whatsappNumber: "916299632625",
   emailAddress: "contact@arjunvermaphotography.com",
   instagramUrl: "https://www.instagram.com",
   youtubeUrl: "https://www.youtube.com",
-  fullAddress: "Heritage Haveli Studio, MG Road, New Delhi 110001",
+  fullAddress: "Royal Heritage Studio, Main Road, Ranchi, Jharkhand 834001",
 };
 ```
 

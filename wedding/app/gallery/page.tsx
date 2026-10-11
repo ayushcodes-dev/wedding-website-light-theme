@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Sparkles, Maximize2, Filter, CalendarCheck } from "lucide-react";
+import { ArrowLeft, Sparkles, Maximize2, CalendarCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LightboxModal from "@/components/LightboxModal";
@@ -13,17 +13,14 @@ import galleryPhotos, { GalleryPhoto, GalleryShape } from "@/website-data/galler
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [selectedShape, setSelectedShape] = useState<string>("all");
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Filter photos by category and shape
-  const filteredPhotos = galleryPhotos.filter((photo) => {
-    const matchesCategory =
-      selectedCategory === "all" || photo.category === selectedCategory;
-    const matchesShape = selectedShape === "all" || photo.shape === selectedShape;
-    return matchesCategory && matchesShape;
-  });
+  // Filter photos by category
+  const filteredPhotos =
+    selectedCategory === "all"
+      ? galleryPhotos
+      : galleryPhotos.filter((photo) => photo.category === selectedCategory);
 
   const categories = [
     { id: "all", label: "All Photos", count: galleryPhotos.length },
@@ -52,15 +49,6 @@ export default function GalleryPage() {
       label: "Festival",
       count: galleryPhotos.filter((p) => p.category === "festival").length,
     },
-  ];
-
-  const shapes: { id: string; label: string }[] = [
-    { id: "all", label: "All Shapes" },
-    { id: "arch", label: "Palace Arch" },
-    { id: "pill", label: "Capsule Pill" },
-    { id: "framed", label: "Royal Framed" },
-    { id: "asymmetric", label: "Asymmetric" },
-    { id: "rounded", label: "Soft Rounded" },
   ];
 
   const getShapeClass = (shape: GalleryShape) => {
@@ -138,30 +126,6 @@ export default function GalleryPage() {
                   );
                 })}
               </div>
-
-              {/* Shape Filter Pills */}
-              <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
-                <span className="text-[11px] uppercase tracking-wider text-[#8A8182] font-medium flex items-center gap-1 mr-1">
-                  <Filter className="w-3 h-3 text-[#7D111E]" />
-                  <span>Shape:</span>
-                </span>
-                {shapes.map((shp) => {
-                  const isActive = selectedShape === shp.id;
-                  return (
-                    <button
-                      key={shp.id}
-                      onClick={() => setSelectedShape(shp.id)}
-                      className={`px-3 py-1 rounded-full text-[10px] uppercase tracking-wider transition-all ${
-                        isActive
-                          ? "bg-[#38060B] text-white font-medium shadow-xs"
-                          : "bg-white/70 text-[#5C5556] hover:bg-white border border-[#88131F]/10"
-                      }`}
-                    >
-                      {shp.label}
-                    </button>
-                  );
-                })}
-              </div>
             </div>
           </section>
 
@@ -170,16 +134,13 @@ export default function GalleryPage() {
             {filteredPhotos.length === 0 ? (
               <div className="text-center py-16 bg-white rounded-2xl border border-[#88131F]/15">
                 <p className="font-serif text-base text-[#5C5556]">
-                  No photographs match the selected filter combination.
+                  No photographs match the selected category.
                 </p>
                 <button
-                  onClick={() => {
-                    setSelectedCategory("all");
-                    setSelectedShape("all");
-                  }}
+                  onClick={() => setSelectedCategory("all")}
                   className="mt-3 px-4 py-1.5 rounded-full text-xs uppercase tracking-wider font-semibold bg-[#7D111E] text-white"
                 >
-                  Reset Filters
+                  Show All Photos
                 </button>
               </div>
             ) : (

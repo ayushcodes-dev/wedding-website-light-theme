@@ -101,7 +101,7 @@ export default function BookingModal({
               <input
                 type="tel"
                 required
-                placeholder="+91 98765 43210"
+                placeholder="+91 62996 32625"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#88131F]/20 text-sm focus:border-[#7D111E]"
@@ -139,7 +139,7 @@ export default function BookingModal({
               </label>
               <input
                 type="text"
-                placeholder="e.g. Udaipur, Jaipur, Delhi"
+                placeholder="e.g. Ranchi, Jamshedpur, Patna"
                 value={formData.city}
                 onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl bg-white border border-[#88131F]/20 text-sm focus:border-[#7D111E]"

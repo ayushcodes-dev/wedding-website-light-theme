@@ -28,22 +28,22 @@ export interface ContactData {
 export const contactData: ContactData = {
   studioName: "Arjun Verma Wedding Photography Studio",
   addressLines: [
-    "Heritage Haveli Studio, 4th Floor, Suite 402",
-    "Opposite Royal Plaza, MG Road",
+    "Royal Heritage Studio, Main Road",
+    "Opposite GEL Church Complex",
   ],
-  cityStateCountry: "New Delhi, Delhi, India",
-  pinCode: "110001",
+  cityStateCountry: "Ranchi, Jharkhand, India",
+  pinCode: "834001",
   fullAddress:
-    "Heritage Haveli Studio, Suite 402, Opposite Royal Plaza, MG Road, New Delhi, India 110001",
-  // High reliability standard embed URL for New Delhi Heritage Center
+    "Royal Heritage Studio, Main Road, Opposite GEL Church Complex, Ranchi, Jharkhand, India - 834001",
+  // Google Maps embed URL for Ranchi, Jharkhand
   googleMapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112061.26553857321!2d77.1024901972656!3d28.632429400000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i786!4f13.1!3m3!1m2!1s0x390cfd37b92bbab5%3A0x4e5a95383568c078!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117223.77885741006!2d85.25126839088654!3d23.34320481232815!2m3!1f0!2f0!3f0!3m2!1i1024!2i786!4f13.1!3m3!1m2!1s0x39f4e104aa5db7dd%3A0xdc09d49d6899f43e!2sRanchi%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
   googleMapDirectionsUrl:
-    "https://maps.google.com/?q=Connaught+Place,+New+Delhi,+India",
-  phoneNumber: "+919876543210",
-  phoneDisplay: "+91 98765 43210",
-  whatsappNumber: "919876543210",
-  whatsappDisplay: "+91 98765 43210",
+    "https://maps.google.com/?q=Main+Road,+Ranchi,+Jharkhand,+India",
+  phoneNumber: "+916299632625",
+  phoneDisplay: "+91 62996 32625",
+  whatsappNumber: "916299632625",
+  whatsappDisplay: "+91 62996 32625",
   whatsappDefaultMessage:
     "Namaste Arjun! I visited your wedding photography portfolio and would love to check your availability and package details for my upcoming wedding/event.",
   emailAddress: "contact@arjunvermaphotography.com",
