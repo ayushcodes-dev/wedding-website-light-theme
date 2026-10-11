@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-playfair: 'Playfair Display', serif;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-great-vibes: 'Great Vibes', cursive;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --dark-red-base: #7D111E;
+  --dark-red-dark: #5B0D15;
+  --dark-red-deepest: #38060B;
+  --dark-red-rich: #961824;
+  --dark-fade-midnight: #120204;
+  --light-ivory: #FAF8F5;
+  --gold-champagne: #D4AF37;
+  --gold-antique: #C5A059;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom Typography mapping */
+.font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.font-luxury {
+  font-family: var(--font-cormorant), 'Times New Roman', serif;
+}
+
+.font-cursive {
+  font-family: var(--font-great-vibes), 'Brush Script MT', cursive;
+}
+
+.font-sans {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Hardware accelerated smooth animations for mobile & low-power phones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes smokePulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04) translate3d(0, -6px, 0);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-smoke {
+  animation: smokePulse 14s ease-in-out infinite alternate;
+}
+
+/* Smoke & mist atmospheric overlays */
+.hero-smoke-gradient {
+  background: radial-gradient(
+      ellipse at 50% 45%,
+      rgba(24, 3, 6, 0.4) 0%,
+      rgba(20, 2, 5, 0.75) 60%,
+      rgba(15, 2, 4, 0.94) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(18, 2, 4, 0.35) 0%,
+      rgba(30, 4, 8, 0.55) 45%,
+      rgba(14, 2, 4, 0.96) 100%
+    );
+}
+
+.dark-fade-top-bottom {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 2, 4, 0.95) 0%,
+    rgba(32, 4, 8, 0.92) 50%,
+    #FAF8F5 100%
+  );
+}
+
+/* Subtle Indian cultural motif borders & frames */
+.mandala-pattern {
+  background-image: radial-gradient(#C5A05922 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Image Shapes for Gallery */
+.shape-arch {
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.shape-pill {
+  border-radius: 9999px;
+}
+
+.shape-asymmetric {
+  border-radius: 48px 12px 48px 12px;
+}
+
+.shape-rounded-card {
+  border-radius: 24px;
+}
+
+/* Hide scrollbar for smooth touch drag */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth focus rings */
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #7D111E;
+  outline-offset: 2px;
 }
